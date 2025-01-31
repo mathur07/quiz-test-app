@@ -4,7 +4,6 @@ import html
 import time
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key'  # Replace with a secure key in production
 
 # Fallback questions in case API fails
 FALLBACK_QUESTIONS = [
@@ -182,5 +181,5 @@ def summary():
 def play_again():
     return redirect(url_for('index'))
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=8080, debug=True)

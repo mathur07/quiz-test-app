@@ -5,10 +5,11 @@ metadata:
     app: quiz-test-app
   name: quiz-test-app
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
-    - protocol: TCP
-      port: 5000
-      targetPort: 5000
+    - name: 8080-tcp
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
   selector:
     app: quiz-test-app

@@ -19,5 +19,5 @@ spec:
           imagePullPolicy: Always
           name: quiz-test-app
           ports:
-            - containerPort: 5000
+            - containerPort: 8080
               protocol: TCP
