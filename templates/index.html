@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Optionally, you can add a loading message or instructions here -->
+    {% if not get_flashed_messages() %}
+        <p>Initializing your quiz...</p>
+    {% endif %}
+{% endblock %}

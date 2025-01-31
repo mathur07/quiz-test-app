@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="question">
+        <p>Question {{ question_number }} of {{ total_questions }}:</p>
+        <p>{{ question }}</p>
+    </div>
+    
+    <div class="buttons">
+        <form action="{{ url_for('vote', action='up') }}" method="post">
+            <button type="submit" class="thumb up"><i class="fas fa-thumbs-up"></i> Agree</button>
+        </form>
+        <form action="{{ url_for('vote', action='down') }}" method="post">
+            <button type="submit" class="thumb down"><i class="fas fa-thumbs-down"></i> Disagree</button>
+        </form>
+    </div>
+{% endblock %}

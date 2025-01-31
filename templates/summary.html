@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Quiz Summary</h2>
+    <p>Your Score: {{ score }} out of {{ total }}</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Your Answer</th>
+                <th>Correct Answer</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in summary %}
+            <tr>
+                <td>{{ item.question }}</td>
+                <td>{{ item.user_answer }}</td>
+                <td>{{ item.correct_answer }}</td>
+                <td>
+                    {% if item.is_correct %}
+                        <span class="correct">🟩 Correct</span>
+                    {% else %}
+                        <span class="incorrect">🟥 Incorrect</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <div class="play-again">
+        <a href="{{ url_for('play_again') }}" class="button">Play Again</a>
+    </div>
+{% endblock %}
