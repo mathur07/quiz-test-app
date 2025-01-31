@@ -4,6 +4,7 @@ import html
 import time
 
 app = Flask(__name__)
+app.secret_key = '33a0f358127a9efa936a7743fc95392c'
 
 # Fallback questions in case API fails
 FALLBACK_QUESTIONS = [
