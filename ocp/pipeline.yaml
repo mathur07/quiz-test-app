@@ -71,3 +71,21 @@ spec:
       workspace: shared-workspace
     runAfter:
     - fetch-repository
+  - name: apply-manifests
+    taskRef:
+      name: apply-manifests
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    runAfter: 
+    - build-image
+  - name: deploy
+    taskRef:
+      name: deploy
+    params:
+    - name: deployment
+      value: $(params.deployment-name)
+    - name: IMAGE
+      value: $(params.IMAGE)
+    runAfter:
+    - apply-manifests

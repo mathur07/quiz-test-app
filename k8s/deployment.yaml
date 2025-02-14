@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: quiz-test-app
-  name: quiz-test-app
+    app: quiz-app
+  name: quiz-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: quiz-test-app
+      app: quiz-app
   template:
     metadata:
       labels:
-        app: quiz-test-app
+        app: quiz-app
     spec:
       containers:
         - image: quay.io/openshift-pipeline/vote-api:latest
           imagePullPolicy: Always
-          name: quiz-test-app
+          name: quiz-app
           ports:
             - containerPort: 8080
               protocol: TCP

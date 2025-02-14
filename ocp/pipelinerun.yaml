@@ -11,9 +11,9 @@ spec:
   - name: git-url
     value: https://github.com/mathur07/quiz-test-app.git
   - name: git-revision
-    value: SRVKP-6938-test-2  
+    value: main  
   - name: git-context
-    value: templates
+    value: .
   - name: IMAGE
     value: image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/quiz-app
   workspaces:
