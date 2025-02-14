@@ -1,0 +1,31 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  name: build-deploy-quiz
+spec:
+  pipelineRef:
+    name: build-and-deploy
+  params:
+  - name: deployment-name
+    value: quiz-app
+  - name: git-url
+    value: https://github.com/mathur07/quiz-test-app.git
+  - name: git-revision
+    value: SRVKP-6938-test-2  
+  - name: git-context
+    value: templates
+  - name: IMAGE
+    value: image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/quiz-app
+  workspaces:
+  - name: shared-workspace
+    volumeClaimTemplate:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: source-pvc
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 500Mi
